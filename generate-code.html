@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survey Participation Code</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f8fafc;
+    }
+    .card {
+      display: inline-block;
+      background: white;
+      padding: 40px 60px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #1e3a8a;
+    }
+    #code {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 20px 0;
+      color: #065f46;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Thank You for Completing the Survey!</h1>
+    <p>Click the button below to generate your unique participation code.</p>
+    <button onclick="showCode()">Generate Code</button>
+    <div id="code"></div>
+    <p style="margin-top:20px;">Please copy this code and enter it in the prize draw form.</p>
+  </div>
+
+  <script>
+    function generateCode(length = 6) {
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+      let code = '';
+      for (let i = 0; i < length; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
+    }
+
+    function showCode() {
+      document.getElementById('code').innerText = generateCode();
+    }
+  </script>
+</body>
+</html>
